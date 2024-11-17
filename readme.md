@@ -39,7 +39,8 @@ globalEventManager.emit('nameOfEvent', data)
 //emit event, send data to all current listeners
 
 globalEventManager.off('nameOfEvent', listenerID)
-//remove listener by ID, probably could be made easier to use, since all you really need is ID, but I'm gonna leave it as it is.
+//remove listener by ID, probably could be made easier to use, 
+//since all you really need is ID, but I'm gonna leave it as it is.
 ```
 
 ## Boring stuff
