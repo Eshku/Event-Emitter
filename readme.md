@@ -27,19 +27,19 @@ Use at your own risk, test for your needs before using.
 ```js
 const { eventEmitter } = await import(`${PATH_TO_MODULE}/EventEmitter.js`)
 
-globalEventManager.once('nameOfEvent', data => {
+eventEmitter.once('nameOfEvent', data => {
 	//listen once, do something with data, then stop listening.
 })
 
-let listenerID = globalEventManager.on('nameOfEvent', data => {
+let listenerID = eventEmitter.on('nameOfEvent', data => {
 	//listen to an event, do something with data.
 	//assign ID to listener to remove it later if needed.
 })
 
-globalEventManager.emit('nameOfEvent', data)
+eventEmitter.emit('nameOfEvent', data)
 //emit event, send data to all current listeners
 
-globalEventManager.off('nameOfEvent', listenerID)
+eventEmitter.off('nameOfEvent', listenerID)
 //remove listener by ID, probably could be made easier to use,
 //since all you really need is ID, but I'm gonna leave it as it is.
 ```
