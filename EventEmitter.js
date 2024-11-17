@@ -1,4 +1,4 @@
-class GlobalEventEmitter {
+class EventEmitter {
 	constructor() {
 		this.eventSubscribers = {}
 		this.nextId = 1
@@ -36,4 +36,4 @@ class GlobalEventEmitter {
 	}
 }
 
-export const eventEmitter = new GlobalEventEmitter()
+export const eventEmitter = new EventEmitter()

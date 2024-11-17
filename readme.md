@@ -25,7 +25,7 @@ Use at your own risk, test for your needs before using.
 ## Usage
 
 ```js
-const { EventEmitter } = await import(`${PATH_TO_MODULE}/EventEmitter.js`)
+const { eventEmitter } = await import(`${PATH_TO_MODULE}/EventEmitter.js`)
 
 globalEventManager.once('nameOfEvent', data => {
 	//listen once, do something with data, then stop listening.
