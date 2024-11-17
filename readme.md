@@ -13,14 +13,14 @@ It works for my needs, I'ma call it good enough ¯\_(ツ)\_/¯
 
 Use at your own risk, test for your needs before using.
 
-## features
+## Features
 
-- emiter emits
-- listeners listening
-- listeners can stop listening
-- listeners can listen only once
-- works with anonymous functions (can access listener by it's ID)
-- should work with named functions (although not tested)
+- Emiter emits
+- Listeners listening
+- Listeners can stop listening
+- Listeners can listen only once
+- Works with anonymous functions (can access listener by it's ID)
+- Should work with named functions (although not tested)
 
 ## Usage
 
@@ -28,19 +28,19 @@ Use at your own risk, test for your needs before using.
 const { eventEmitter } = await import(`${PATH_TO_MODULE}/EventEmitter.js`)
 
 eventEmitter.once('nameOfEvent', data => {
-	//listen once, do something with data, then stop listening.
+	//Listen once, do something with data, then stop listening.
 })
 
 let listenerID = eventEmitter.on('nameOfEvent', data => {
-	//listen to an event, do something with data.
-	//assign ID to listener to remove it later if needed.
+	//Listen to an event, do something with data.
+	//Assign ID to listener to remove it later if needed.
 })
 
 eventEmitter.emit('nameOfEvent', data)
-//emit event, send data to all current listeners
+//Emit event, send data to all current listeners
 
 eventEmitter.off('nameOfEvent', listenerID)
-//remove listener by ID, probably could be made easier to use,
+//Remove listener by ID, probably could be made easier to use,
 //since all you really need is ID, but I'm gonna leave it as it is.
 ```
 
