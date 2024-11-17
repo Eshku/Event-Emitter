@@ -16,7 +16,7 @@ Use at your own risk, test for your needs before using.
 ## features
 
 - emiter emits
-- listeners listen
+- listeners listening
 - listeners can stop listening
 - listeners can listen only once
 - works with anonymous functions (can access listener by it's ID)
@@ -28,18 +28,19 @@ Use at your own risk, test for your needs before using.
 const { EventEmitter } = await import(`${PATH_TO_MODULE}/EventEmitter.js`)
 
 globalEventManager.once('nameOfEvent', data => {
-	//listen once, do something with data, then stop listening
+	//listen once, do something with data, then stop listening.
 })
 
-globalEventManager.on('nameOfEvent', data => {
-	//listen to an event, do something with data
+let listenerID = globalEventManager.on('nameOfEvent', data => {
+	//listen to an event, do something with data.
+	//assign ID to listener to remove it later if needed.
 })
 
 globalEventManager.emit('nameOfEvent', data)
 //emit event, send data to all current listeners
 
 globalEventManager.off('nameOfEvent', listenerID)
-//remove listener by ID, probably could be made easier to use, 
+//remove listener by ID, probably could be made easier to use,
 //since all you really need is ID, but I'm gonna leave it as it is.
 ```
 
