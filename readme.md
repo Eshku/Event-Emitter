@@ -15,7 +15,7 @@ Use at your own risk, test for your needs before using.
 
 ## features
 
-- emiter emits.
+- emiter emits
 - listeners listen
 - listeners can stop listening
 - listeners can listen only once
