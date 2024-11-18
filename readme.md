@@ -6,11 +6,9 @@ Provides a simple global event emitter for client-side javascript, allowing diff
 
 ## Disclaimer
 
-This is a basic implementation; there is no "caching" or "queuing" of events, meaning if you are emitting an event and there are no listeners - no listeners will recieve event, even when a new listener joins.
+This is a basic implementation; there is no "caching" or "queuing" of events, meaning if you are emitting an event and there are no listeners - no listeners will recieve event, even when new listener joins.
 
-Do not expect it to be optimized for performance or, well, optimized at all at this point.
-It works for my needs, I'ma call it good enough ¯\_(ツ)\_/¯
-
+Not optimized, made with thought of ease of use over performance.
 Use at your own risk, test for your needs before using.
 
 ## Features
@@ -39,9 +37,8 @@ let listenerID = eventEmitter.on('nameOfEvent', data => {
 eventEmitter.emit('nameOfEvent', data)
 //Emit event, send data to all current listeners
 
-eventEmitter.off('nameOfEvent', listenerID)
-//Remove listener by ID, probably could be made easier to use,
-//since all you really need is ID, but I'm gonna leave it as it is.
+eventEmitter.off(listenerID)
+//Remove listener by ID.
 ```
 
 ## Boring stuff

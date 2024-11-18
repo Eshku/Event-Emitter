@@ -21,8 +21,8 @@ class EventEmitter {
 		}
 	}
 
-	off(eventName, id) {
-		if (this.eventSubscribers[eventName]) {
+	off(id) {
+		for (const eventName in this.eventSubscribers) {
 			this.eventSubscribers[eventName] = this.eventSubscribers[eventName].filter(listener => listener.id !== id)
 		}
 	}
@@ -30,7 +30,7 @@ class EventEmitter {
 	once(eventName, callback) {
 		const id = this.on(eventName, (...args) => {
 			callback(...args)
-			this.off(eventName, id)
+			this.off(id)
 		})
 		return id
 	}
