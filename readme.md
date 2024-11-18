@@ -17,8 +17,7 @@ Use at your own risk, test for your needs before using.
 - Listeners listening
 - Listeners can stop listening
 - Listeners can listen only once
-- Works with anonymous functions (can access listener by it's ID)
-- Should work with named functions (although not tested)
+- Works with both anonymous and named functions, declarations and expressions.
 
 ## Usage
 
