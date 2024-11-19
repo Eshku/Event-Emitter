@@ -8,7 +8,7 @@ Provides a simple global event emitter for client-side javascript, allowing diff
 
 This is a basic implementation; there is no "caching" or "queuing" of events, meaning if you are emitting an event and there are no listeners - no listeners will recieve event, even when new listener joins.
 
-Not optimized, made with thought of ease of use over performance.
+Not optimized.
 Use at your own risk, test for your needs before using.
 
 ## Features
@@ -46,3 +46,8 @@ Copyright (c) [2024] [Eshku]
 Licensed under the MIT License.
 
 ---
+
+
+
+## TODO
+- Improve performance
