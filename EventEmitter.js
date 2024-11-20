@@ -6,9 +6,9 @@ class EventEmitter {
 
 	/**
 	 * Attaches a listener.
-	 * @param {string} event - The event name.
-	 * @param {function} listener - The callback.
-	 * @returns {number} The listener ID.
+	 * @param {string} event - Event name.
+	 * @param {function} callback - Callback function.
+	 * @returns {number} Listener ID.
 	 */
 
 	on(event, callback) {
@@ -21,9 +21,8 @@ class EventEmitter {
 
 	/**
 	 * Attaches a one-time listener.
-	 * @param {string} event - The event name.
-	 * @param {function} listener - The callback.
-	 * @returns {number} The listener ID.
+	 * @param {string} event - Event name.
+	 * @param {function} callback - Callback function.
 	 */
 
 	once(event, callback) {
@@ -35,8 +34,8 @@ class EventEmitter {
 
 	/**
 	 * Emits an event.
-	 * @param {string} event - The event name.
-	 * @param {*} data - The data to pass.
+	 * @param {string} event - Event name.
+	 * @param {*} data - Data to pass.
 	 */
 
 	emit(event, ...args) {
@@ -51,8 +50,8 @@ class EventEmitter {
 
 	/**
 	 * Removes a listener.
-	 * @param {number} id - The listener ID.
-	 * @param {string} [event] - The event name (optional).
+	 * @param {number} id - Listener ID.
+	 * @param {string} [event] - Event name (optional).
 	 */
 
 	off(id, event) {
@@ -78,7 +77,7 @@ class EventEmitter {
 
 	/**
 	 * Removes all listeners.
-	 * @param {string} [event] - The event name (optional).
+	 * @param {string} [event] - Event name (optional).
 	 */
 
 	offAll(event) {
