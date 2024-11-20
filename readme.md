@@ -43,7 +43,7 @@ eventEmitter.off(listenerID)
 //Remove listener by ID.
 
 eventEmitter.offAll(event)
-//Remove all listeners - if none event specified - remove all listeners for all events.
+//Remove all listeners - if no event specified - remove all listeners for all events.
 ```
 
 
