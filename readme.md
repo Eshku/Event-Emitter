@@ -25,8 +25,6 @@ Use at your own risk, test for your needs before using.
 ```js
 const { eventEmitter } = await import(`${PATH_TO_MODULE}/EventEmitter.js`)
 
-
-
 let listenerID = eventEmitter.on('nameOfEvent', data => {
 	//Listen to an event, do something with data.
 	//Assign ID to listener to stop listening later if needed.
@@ -46,13 +44,12 @@ eventEmitter.offAll(event)
 //Remove all listeners - if no event specified - remove all listeners for all events.
 ```
 
-
-
 ## TODO
-:recycle: - Improve Performance
-:white_check_mark: - JSDoc.
-:x: - Debug output.
-:x: - Test properly.
-:x: - Add Unit tests.
-:recycle: - Refactor.
-:x: - Error handling
+
+- :recycle: - Improve Performance
+- :white_check_mark: - JSDoc.
+- :x: - Debug output.
+- :x: - Test properly.
+- :x: - Add Unit tests.
+- :recycle: - Refactor.
+- :x: - Error handling
