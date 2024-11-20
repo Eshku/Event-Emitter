@@ -46,10 +46,10 @@ eventEmitter.offAll(event)
 
 ## TODO
 
-- :recycle: - Improve Performance
-- :white_check_mark: - JSDoc.
-- :x: - Debug output.
-- :x: - Test properly.
-- :x: - Add Unit tests.
-- :recycle: - Refactor.
-- :x: - Error handling
+:recycle: - Improve Performance<br>
+:white_check_mark: - JSDoc.<br>
+:x: - Debug output.<br>
+:x: - Test properly.<br>
+:x: - Add Unit tests.<br>
+:recycle: - Refactor.<br>
+:x: - Error handling<br>
