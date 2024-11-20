@@ -56,17 +56,17 @@ class EventEmitter {
 
 	off(id, event) {
 		if (event) {
-			const listeners = this.listeners.get(event)
-			if (listeners) {
-				listeners.delete(id)
-				if (listeners.size === 0) {
+			const listener = this.listeners.get(event)
+			if (listener) {
+				listener.delete(id)
+				if (listener.size === 0) {
 					this.listeners.delete(event)
 				}
 			}
 		} else {
-			for (const listeners of this.listeners.values()) {
-				if (listeners.delete(id)) {
-					if (listeners.size === 0) {
+			for (const listener of this.listeners.values()) {
+				if (listener.delete(id)) {
+					if (listener.size === 0) {
 						this.listeners.delete(event)
 					}
 					break
