@@ -13,10 +13,11 @@ Use at your own risk, test for your needs before using.
 
 ## Features
 
-- Emiter emits
-- Listeners listening
-- Listeners can stop listening
-- Listeners can listen only once
+- Emiter emits.
+- Listeners listening.
+- Listeners can stop listening.
+- Listeners can listen only once.
+- Can remove All listeners based on event or just delete all of them.
 - Works with both anonymous and named functions, declarations and expressions.
 
 ## Usage
@@ -24,13 +25,15 @@ Use at your own risk, test for your needs before using.
 ```js
 const { eventEmitter } = await import(`${PATH_TO_MODULE}/EventEmitter.js`)
 
-eventEmitter.once('nameOfEvent', data => {
-	//Listen once, do something with data, then stop listening.
-})
+
 
 let listenerID = eventEmitter.on('nameOfEvent', data => {
 	//Listen to an event, do something with data.
-	//Assign ID to listener to remove it later if needed.
+	//Assign ID to listener to stop listening later if needed.
+})
+
+eventEmitter.once('nameOfEvent', data => {
+	//Listen once, do something with data, then stop listening.
 })
 
 eventEmitter.emit('nameOfEvent', data)
@@ -38,16 +41,17 @@ eventEmitter.emit('nameOfEvent', data)
 
 eventEmitter.off(listenerID)
 //Remove listener by ID.
+
+eventEmitter.offAll(event)
+//Remove all listeners - if none event specified - remove all listeners for all events.
 ```
-
-## Boring stuff
-
-Copyright (c) [2024] [Eshku]
-Licensed under the MIT License.
-
----
 
 
 
 ## TODO
-- Improve performance
+[:recycle:] - Improve Performance
+[:white_check_mark:] - JSDoc.
+[:x:] - Debug output.
+[:x:] - Test properly.
+[:x:] - Add Unit tests.
+[:recycle:] - Refactor.

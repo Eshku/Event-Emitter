@@ -1,38 +1,88 @@
 class EventEmitter {
 	constructor() {
-		this.eventSubscribers = {}
+		this.listeners = new Map()
 		this.nextId = 1
 	}
 
-	on(eventName, callback) {
-		if (!this.eventSubscribers[eventName]) {
-			this.eventSubscribers[eventName] = []
-		}
+	/**
+	 * Attaches a listener.
+	 * @param {string} event - The event name.
+	 * @param {function} listener - The callback.
+	 * @returns {number} The listener ID.
+	 */
+
+	on(event, callback) {
+		if (!this.listeners.has(event)) this.listeners.set(event, new Map())
 
 		const id = this.nextId++
-		this.eventSubscribers[eventName].push({ id, callback })
+		this.listeners.get(event).set(id, callback)
 		return id
 	}
 
-	emit(eventName, ...args) {
-		const listeners = this.eventSubscribers[eventName] || []
-		for (const listener of listeners) {
-			listener.callback(...args)
-		}
-	}
+	/**
+	 * Attaches a one-time listener.
+	 * @param {string} event - The event name.
+	 * @param {function} listener - The callback.
+	 * @returns {number} The listener ID.
+	 */
 
-	off(id) {
-		for (const eventName in this.eventSubscribers) {
-			this.eventSubscribers[eventName] = this.eventSubscribers[eventName].filter(listener => listener.id !== id)
-		}
-	}
-
-	once(eventName, callback) {
-		const id = this.on(eventName, (...args) => {
+	once(event, callback) {
+		const id = this.on(event, (...args) => {
 			callback(...args)
-			this.off(id)
+			this.off(id, event)
 		})
-		return id
+	}
+
+	/**
+	 * Emits an event.
+	 * @param {string} event - The event name.
+	 * @param {*} data - The data to pass.
+	 */
+
+	emit(event, ...args) {
+		const listeners = this.listeners.get(event)
+
+		if (!listeners) return false
+
+		for (const callback of listeners.values()) callback(...args)
+
+		return true
+	}
+
+	/**
+	 * Removes a listener.
+	 * @param {number} id - The listener ID.
+	 * @param {string} [event] - The event name (optional).
+	 */
+
+	off(id, event) {
+		if (event) {
+			const listeners = this.listeners.get(event)
+			if (listeners) {
+				listeners.delete(id)
+				if (listeners.size === 0) {
+					this.listeners.delete(event)
+				}
+			}
+		} else {
+			for (const listeners of this.listeners.values()) {
+				if (listeners.delete(id)) {
+					if (listeners.size === 0) {
+						this.listeners.delete(event)
+					}
+					break
+				}
+			}
+		}
+	}
+
+	/**
+	 * Removes all listeners.
+	 * @param {string} [event] - The event name (optional).
+	 */
+
+	offAll(event) {
+		event ? this.listeners.delete(event) : this.listeners.clear()
 	}
 }
 
