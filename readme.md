@@ -36,6 +36,9 @@ eventEmitter.once('nameOfEvent', data => {
 
 eventEmitter.emit('nameOfEvent', data)
 //Emit event, send data to all current listeners
+//returns true if emited to at least 1 listener, false otherwise.
+//Might add seperate debug functionality later on.
+
 
 eventEmitter.off(listenerID)
 //Remove listener by ID.
