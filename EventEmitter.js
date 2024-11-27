@@ -61,14 +61,14 @@ class EventEmitter {
 			if (foundListeners) {
 				foundListeners.delete(id)
 				if (foundListeners.size === 0) {
-					this.foundListeners.delete(event)
+					foundListeners.delete(event)
 				}
 			}
 		} else {
 			for (const foundListeners of this.listeners.values()) {
 				if (foundListeners.delete(id)) {
 					if (foundListeners.size === 0) {
-						this.foundListeners.delete(event)
+						foundListeners.delete(event)
 					}
 					break
 				}
